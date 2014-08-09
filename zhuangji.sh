@@ -1,6 +1,6 @@
 #!/bin/bash
 #本脚本用于 装机后 java eclipse adk ant flash 配置
-base_path=$"/usr/opt/app"
+base_path=$"/usr/opt"
 root_path=$(dirname $(readlink -f $0))
 cd $root_path;
 
@@ -97,8 +97,8 @@ then
 	echo " \n yes flash\n"
 	if [ -f  "$base_path/libflashplayer.so"  ] 
 	then
-#	sudo mv $base_path"/"libflashplayer.so "/usr/lib/mozilla/plugins/"
-#	mv -r $base_path"/"usr/*    /usr/
+	sudo mv $base_path"/"libflashplayer.so "/usr/lib/mozilla/plugins/"
+	mv -r $base_path"/"usr/*    /usr
 	echo "\n cp====flashplayer\n"
 	else
 	echo "\n flashplayer failed\n"
@@ -111,19 +111,19 @@ fi
       if [ $lastname == "zip" ]
 	then
 	echo "\n nuzip:::"$path"\n"
-#	sudo unzip $path -d $base_path
+	sudo unzip $path -d $base_path
 	fi
        if [ $lastname == "gz" ]
 	then
 	echo "\n tar gz:::"$path"\n"
 
-#	sudo tar -zxvf  $path  -C  $base_path
+	sudo tar -zxvf  $path  -C  $base_path
 
 	fi
 	if [ $lastname == "bz2" ] 
 	then 
 	echo "\n tar bz2:::"$path"\n"
-#	sudo tar -jxvf $path -C $base_path
+	sudo tar -jxvf $path -C $base_path
 	fi
 	sudo chmod -R 777 $base_path
 
@@ -151,17 +151,18 @@ cd ~/
 ls -l
 
 all_path=$"PATH=${ant1}":"${java2}":"${ndk1}":"${eclipse1}":"${adb1}":"$PATH"
-echo -e "\n\n\n\n""export ADB=$adb1""\n""export ANT=$ant1""\n""export JAVA_HOME=$java1""\n""export JAVA_BIN=$java2""\n""export $java3""\n""export NDK=$ndk1""\n""export ECLIPSE=$eclipse1""\n""export $all_path" >> ./demo.txt
+echo -e "\n\n\n\n""export ADB=$adb1""\n""export ANT=$ant1""\n""export JAVA_HOME=$java1""\n""export JAVA_BIN=$java2""\n""export $java3""\n""export NDK=$ndk1""\n""export ECLIPSE=$eclipse1""\n""export $all_path" >> ./.bashrc
 
-#. ./.bashrc
+. ./.bashrc
+. ./.bashrc
 
-#java -version
+java -version
 printf "\n\n\n\n\n"
-#ant -version
+ant -version
 printf "\n\n\n\n\n"
-#adb -version
+adb -version
 printf "\n\n\n\n\n"
-#ndk -build
+ndk-build -version
 printf "\n\n\n\n\n"
 
 
