@@ -1,5 +1,5 @@
 #!/bin/bash
-#本脚本用于 装机后 java eclipse adk ant flash   配置
+#本脚本用于 装机后 java eclipse adk ant flash 配置
 base_path=$"/usr/opt"
 root_path=$(dirname $(readlink -f $0))
 cd $root_path;
@@ -18,7 +18,7 @@ printf $"\n i cat do that\n"
 
 else
 
-echo  $"\n ok i do that\n"
+printf $"\n ok i do that\n"
 #exit
 
 fi
@@ -34,7 +34,7 @@ then
 
 echo password | sudo mkdir $base_path
 
-echo   "\n"$wenjiancunzai"\n"
+printf  "\n"$wenjiancunzai"\n"
 
 fi
 
@@ -53,9 +53,9 @@ function ergodic(){
    if [ -d $1"/"$file ]
   then
        
-   echo "\n i can't in next path======"$1"/"$file"\n"
-   echo "\n $root_path\n"
-   echo "\n $base_path\n"
+    printf "\n i can't in next path======"$1"/"$file"\n"
+    printf "\n $root_path\n"
+    printf "\n $base_path\n"
 #      ergodic $1"/"$file
 if [  ! "$root_path"  ==  $"base_path"  ]
 then
@@ -63,7 +63,7 @@ then
 #	if [ $? -eq 0 ]
 	if [[ "$name" =~ "jdk" ]]
 	then
-	echo "yes jdk\n"
+	printf "yes jdk\n"
 	java1=$"${base_path}"/"$name"
 	java2=$"${java1}/bin"
 	java3=$"CLASSPATH=.:${java1}/lib:${java1}/lib/tools.jar"
@@ -73,7 +73,7 @@ then
 
 	if [[ "$name" =~ "ant" ]]
 	    then
-	    echo  "\n yes ant \n"
+	    printf "\n yes ant \n"
 	    ant1=$"${base_path}"/"$name""/bin"
 	
 	fi
@@ -81,27 +81,27 @@ then
 	
 	if [[ "$name" =~ "ndk" ]]
 	then
-	echo  "\n yes ndk\n"
+	printf "\n yes ndk\n"
 	ndk1=$"${base_path}"/"$name"
 	fi
 	
 	if [[ "$name" =~ "adt" ]]
 	then
-	echo "\n yes adt\n"
+	printf "\n yes adt\n"
 	eclipse1=$"${base_path}/$name/eclipse"
-	adb1=$"${base_path}"/"$name"/sdk/platform-tools""
+	adb1=$"${base_path}"/"$name"/"sdk/platform-tools"
 	fi
 	
 #	if [[ "$name" =~ "flash" ]]
 #	then
-	echo " \n yes flash\n"
+#	printf " \n yes flash\n"
 	if [ -f  "$base_path/libflashplayer.so"  ] 
 	then
 	sudo mv $base_path"/"libflashplayer.so "/usr/lib/mozilla/plugins/"
-	mv -r $base_path"/"usr/*    /usr
-	echo "\n cp====flashplayer\n"
+	mv -r $base_path"/"usr/*    /usr/
+	printf "\n cp====flashplayer\n"
 	else
-	echo "\n flashplayer failed\n"
+	printf "\n flashplayer failed\n"
 	fi
 #	fi
 fi
@@ -110,19 +110,19 @@ fi
 
       if [ $lastname == "zip" ]
 	then
-	echo "\n nuzip:::"$path"\n"
+	printf "\n nuzip:::"$path"\n"
 	sudo unzip $path -d $base_path
 	fi
        if [ $lastname == "gz" ]
 	then
-	echo "\n tar gz:::"$path"\n"
+	printf "\n tar gz:::"$path"\n"
 
 	sudo tar -zxvf  $path  -C  $base_path
 
 	fi
 	if [ $lastname == "bz2" ] 
 	then 
-	echo "\n tar bz2:::"$path"\n"
+	printf "\n tar bz2:::"$path"\n"
 	sudo tar -jxvf $path -C $base_path
 	fi
 	sudo chmod -R 777 $base_path
@@ -148,13 +148,24 @@ ergodic $INIT_PATH
 # set the app path
 
 cd ~/
-ls -l
+
 
 all_path=$"PATH=${ant1}":"${java2}":"${ndk1}":"${eclipse1}":"${adb1}":"$PATH"
 echo -e "\n\n\n\n""export ADB=$adb1""\n""export ANT=$ant1""\n""export JAVA_HOME=$java1""\n""export JAVA_BIN=$java2""\n""export $java3""\n""export NDK=$ndk1""\n""export ECLIPSE=$eclipse1""\n""export $all_path" >> ./.bashrc
 
-. ./.bashrc
-. ./.bashrc
+source ./.bashrc
+source ./.bashrc
+
+#zheng jia 32 wei yi lai ku an zhuang
+
+sudo apt-get install libc6-i386
+
+sudo  apt-get update
+
+sudo apt-get install lib32stdc++6
+
+
+
 
 java -version
 printf "\n\n\n\n\n"
@@ -162,7 +173,7 @@ ant -version
 printf "\n\n\n\n\n"
 adb -version
 printf "\n\n\n\n\n"
-ndk-build -version
+ndk-build  -verson
 printf "\n\n\n\n\n"
 
 
