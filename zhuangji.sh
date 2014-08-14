@@ -32,7 +32,7 @@ ls
 if [ ! -d "$base_path" ]  
 then
 
-echo password | sudo mkdir $base_path
+sudo mkdir -p $base_path
 
 printf  "\n"$wenjiancunzai"\n"
 
