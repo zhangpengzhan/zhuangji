@@ -164,7 +164,7 @@ sudo  apt-get update
 
 sudo apt-get install lib32stdc++6
 
-
+sudo apt-get install lib32z1
 
 
 java -version
