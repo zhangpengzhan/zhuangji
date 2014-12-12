@@ -90,6 +90,7 @@ then
 	printf "\n yes adt\n"
 	eclipse1=$"${base_path}/$name/eclipse"
 	adb1=$"${base_path}"/"$name"/"sdk/platform-tools"
+	adb2=$"${base_path}"/"$name"/"sdk/tools"
 	fi
 	
 #	if [[ "$name" =~ "flash" ]]
@@ -150,8 +151,8 @@ ergodic $INIT_PATH
 cd ~/
 
 
-all_path=$"PATH=${ant1}":"${java2}":"${ndk1}":"${eclipse1}":"${adb1}":"$PATH"
-echo -e "\n\n\n\n""export ADB=$adb1""\n""export ANT=$ant1""\n""export JAVA_HOME=$java1""\n""export JAVA_BIN=$java2""\n""export $java3""\n""export NDK=$ndk1""\n""export ECLIPSE=$eclipse1""\n""export $all_path" >> ./.bashrc
+all_path=$"PATH=${ant1}":"${java2}":"${ndk1}":"${eclipse1}":"${adb1}":"${adb2}":"$PATH"
+echo -e "\n\n\n\n""export ADB=$adb1""\n""export ANDROID_HOME=$adb2""\n""export ANT=$ant1""\n""export JAVA_HOME=$java1""\n""export JAVA_BIN=$java2""\n""export $java3""\n""export NDK=$ndk1""\n""export ECLIPSE=$eclipse1""\n""export $all_path" >> ./.bashrc
 
 source ./.bashrc
 source ./.bashrc
