@@ -1,5 +1,6 @@
 #!/bin/bash
-#本脚本用于 装机后 java eclipse adk ant ndk flash 配置 ~~~~~~
+#本脚本用于 装机后 java eclipse adk ant ndk flash 环境变量配置 ~~~~~~
+#author zhangpengzhan  mail  644606228@qq.com
 base_path=$"/usr/opt"
 root_path=$(dirname $(readlink -f $0))
 cd $root_path;
