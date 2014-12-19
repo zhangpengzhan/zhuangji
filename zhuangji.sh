@@ -1,5 +1,5 @@
 #!/bin/bash
-#本脚本用于 装机后 java eclipse adk ant ndk flash 配置
+#本脚本用于 装机后 java eclipse adk ant ndk flash 配置 ~~~~~~
 base_path=$"/usr/opt"
 root_path=$(dirname $(readlink -f $0))
 cd $root_path;
