@@ -169,9 +169,9 @@ sudo apt-get install libc6-i386
 
 sudo  apt-get update
 
-sudo apt-get install lib32stdc++6
+sudo apt-get install lib32stdc++6 
 
-sudo apt-get install lib32z1
+sudo apt-get install lib32z1 lib32z1-dev
 
 
 java -version
