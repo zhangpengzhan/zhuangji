@@ -78,12 +78,18 @@ then
 	    ant1=$"${base_path}"/"$name""/bin"
 	
 	fi
-
+	#添加gradle 构建工具环境配置
 	if [[ "$name" =~ "gradle" ]]
 		then
 		printf "\n yes gradle"
 		gradle1=$"${base_path}"/"$name""/bin"
 	fi	
+	#添加android-studio 工具配置的支持
+	if [[ "$name" =~ "studio"]]
+		then
+		printf "\n yes studio"
+		studio1=$"${base_path}"/"$name""/bin"
+	fi
 	
 	if [[ "$name" =~ "ndk" ]]
 	then
@@ -157,13 +163,13 @@ ergodic $INIT_PATH
 cd ~/
 
 
-all_path=$"PATH=${gradle1}":"${ant1}":"${java2}":"${ndk1}":"${eclipse1}":"${adb1}":"${adb2}":"$PATH"
-echo -e "\n\n\n\n""export ADB=$adb1""\n""export ANDROID_HOME=$adb2""\n""export ANT=$ant1""\n""export GRADLE_HOME=$gradle1""\n""export JAVA_HOME=$java1""\n""export JAVA_BIN=$java2""\n""export $java3""\n""export NDK=$ndk1""\n""export ECLIPSE=$eclipse1""\n""export $all_path" >> ./.bashrc
+all_path=$"PATH=${gradle1}":"${studio1}":"${ant1}":"${java2}":"${ndk1}":"${eclipse1}":"${adb1}":"${adb2}":"$PATH"
+echo -e "\n\n\n\n""export ADB=$adb1""\n""export ANDROID_HOME=$adb2""\n""export ANT=$ant1""\n""exprot ANDROID_STUDIO=$studio1""\n""export GRADLE_HOME=$gradle1""\n""export JAVA_HOME=$java1""\n""export JAVA_BIN=$java2""\n""export $java3""\n""export NDK=$ndk1""\n""export ECLIPSE=$eclipse1""\n""export $all_path" >> ./.bashrc
 
 source ./.bashrc
 source ./.bashrc
 
-#zheng jia 32 wei yi lai ku an zhuang
+#可能要用到的32位依赖库的安装
 
 sudo apt-get install libc6-i386
 
