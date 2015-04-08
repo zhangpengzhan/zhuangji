@@ -178,6 +178,10 @@ sudo  apt-get update
 sudo apt-get install lib32stdc++6 
 
 sudo apt-get install lib32z1 lib32z1-dev
+ 
+sudo apt-get install libc6-dev-i386 
+
+sudo apt-get install ia32-libs 
 
 
 java -version
