@@ -136,7 +136,7 @@ fi
 	if [ $lastname == "bz2" ] 
 	then 
 	printf "\n tar bz2:::"$path"\n"
-	sudo tar -jxvf $path -C $base_path
+	sudo tar jxf $path -C $base_path
 	fi
 	sudo chmod -R 777 $base_path
 
