@@ -85,7 +85,7 @@ then
 		gradle1=$"${base_path}"/"$name""/bin"
 	fi	
 	#添加android-studio 工具配置的支持
-	if [[ "$name" =~ "studio"]]
+	if [[ "$name" =~ "studio" ]]
 		then
 		printf "\n yes studio"
 		studio1=$"${base_path}"/"$name""/bin"
